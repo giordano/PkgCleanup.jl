@@ -79,13 +79,13 @@ end
 
 Interactively select the `Artifacts.toml` files to remove from the list of active artifacts.
 """
-artifacts() = cleanup(joinpath(logs_directory(), "artifact_usage.toml"), "Artifacts.toml")
+artifacts(path=joinpath(logs_directory(), "artifact_usage.toml")) = cleanup(path, "Artifacts.toml")
 
 """
     PkgCleanup.manifests()
 
 Interactively select the `Manifest.toml` files to remove from the list of active manifests.
 """
-manifests() = cleanup(joinpath(logs_directory(), "manifest_usage.toml"), "Manifest.toml")
+manifests(path=joinpath(logs_directory(), "manifest_usage.toml")) = cleanup(path, "Manifest.toml")
 
 end
