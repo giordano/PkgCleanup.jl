@@ -1,6 +1,6 @@
 module PkgCleanup
 
-using Pkg, TOML, TerminalMenus, REPL.Terminals
+using Pkg, TOML, REPL.TerminalMenus, REPL.Terminals
 
 """
     logs_directory() -> String
