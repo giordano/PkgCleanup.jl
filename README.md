@@ -37,6 +37,35 @@ using PkgCleanup
 
 Yes, that's it.
 
+### Demo
+
+```julia
+julia> using PkgCleanup
+
+julia> PkgCleanup.manifests()
+Select the Manifest.toml to remove from /home/user/.julia/logs/manifest_usage.toml
+[press: d=done, a=all, n=none]
+^  [X] /home/user/.julia/dev/BinaryBuilder/benchmark/Manifest.toml
+   [X] /home/user/.julia/dev/JLLWrappers/Manifest.toml
+   [X] /home/user/.julia/dev/PhysicalConstants/Manifest.toml
+   [X] /home/user/.julia/dev/PkgCleanup/Manifest.toml
+   [ ] /home/user/.julia/environments/v1.0/Manifest.toml
+   [ ] /home/user/.julia/environments/v1.3/Manifest.toml
+   [ ] /home/user/.julia/environments/v1.4/Manifest.toml
+ > [ ] /home/user/.julia/environments/v1.5/Manifest.toml
+   [X] /home/user/.julia/environments/v1.6/Manifest.toml
+v  [X] /home/user/.julia/environments/v1.7/Manifest.toml
+
+You are going to remove the following entries in /home/user/.julia/logs/manifest_usage.toml:
+  * /home/user/.julia/environments/v1.0/Manifest.toml
+  * /home/user/.julia/environments/v1.3/Manifest.toml
+  * /home/user/.julia/environments/v1.4/Manifest.toml
+  * /home/user/.julia/environments/v1.5/Manifest.toml
+Do you confirm your choice? [Y/n]: y
+
+Remember to run Pkg.gc() to actually cleanup files!
+```
+
 ## License
 
 The `PkgCleanup.jl` package is licensed under the MIT "Expat" License.  The
