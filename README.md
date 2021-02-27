@@ -5,11 +5,15 @@
 The [`Pkg.gc()`](https://julialang.github.io/Pkg.jl/v1/api/#Pkg.gc) command
 garbage collects packages and artifacts that are no longer reachable, but will
 not touch existing packages or artifacts requested by existing active
-environments, which are listed in your `~/.julia/logs` directory.
+environments, which are listed in your `~/.julia/logs` directory.  One option
+for a more deep cleaning is to run `]gc --all`, but this will
+remove... well... all packages.
 
-`PkgCleanup.jl` provides a couple of functions which lets you interactively
-remove active environments or artifacts you do not care about and that cannot be
-removed by `Pkg.gc()`.
+If you prefer a more controlled way to clean package installations in your Julia
+depot, you can remove the undesired manifests lingering in `~/.julia/logs`.
+`PkgCleanup.jl` provides a couple of functions which let you interactively
+remove active environments or artifacts you do not care about any longer but
+cannot be removed by `Pkg.gc()`.
 
 ## Installation
 
@@ -39,7 +43,7 @@ Yes, that's it.
 
 ### Demo
 
-**NOTE**: you want to deselect the entries you want to remove.
+**NOTE**: deselect the entries you want to remove.
 
 ```julia
 julia> using PkgCleanup
