@@ -53,7 +53,7 @@ function cleanup(path::String, what::String;
     entries = sort!(collect(keys(toml)))
     select_menu = MultiSelectMenu(entries)
     select_menu.selected = Set(collect(eachindex(entries)))
-    choices = request(terminal, "Select the $(what) to remove from $(path)", select_menu)
+    choices = request(terminal, "Select the $(what) to keep in $(path)", select_menu)
     selected_entries = entries[collect(choices)]
     filter!(e -> e.first ∈ selected_entries, toml)
     deleted = setdiff(entries, selected_entries)
@@ -77,14 +77,14 @@ end
 """
     PkgCleanup.artifacts()
 
-Interactively select the `Artifacts.toml` files to remove from the list of active artifacts.
+Interactively select the `Artifacts.toml` files to keep in the list of active artifacts.
 """
 artifacts(path=joinpath(logs_directory(), "artifact_usage.toml")) = cleanup(path, "Artifacts.toml")
 
 """
     PkgCleanup.manifests()
 
-Interactively select the `Manifest.toml` files to remove from the list of active manifests.
+Interactively select the `Manifest.toml` files to keep in the list of active manifests.
 """
 manifests(path=joinpath(logs_directory(), "manifest_usage.toml")) = cleanup(path, "Manifest.toml")
 

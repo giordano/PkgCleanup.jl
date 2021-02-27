@@ -39,11 +39,13 @@ Yes, that's it.
 
 ### Demo
 
+**NOTE**: you want to deselect the entries you want to remove.
+
 ```julia
 julia> using PkgCleanup
 
 julia> PkgCleanup.manifests()
-Select the Manifest.toml to remove from /home/user/.julia/logs/manifest_usage.toml
+Select the Manifest.toml to keep in /home/user/.julia/logs/manifest_usage.toml
 [press: d=done, a=all, n=none]
 ^  [X] /home/user/.julia/dev/BinaryBuilder/benchmark/Manifest.toml
    [X] /home/user/.julia/dev/JLLWrappers/Manifest.toml
