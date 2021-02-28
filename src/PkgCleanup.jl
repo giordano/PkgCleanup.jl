@@ -64,12 +64,23 @@ function cleanup(path::String, what::String;
             println(stdout, "  * ", el)
         end
         if yn_prompt("Do you confirm your choice?"; stdin, stdout)
-            open(path, "w") do io
-                TOML.print(io, toml; sorted=true)
-            end
+            # open(path, "w") do io
+            #     TOML.print(io, toml; sorted=true)
+            # end
         end
         println(stdout)
-        println(stdout, "Remember to run Pkg.gc() to actually cleanup files!")
+        println(stdout, """
+    To actually cleanup packages/artifacts installations, remember to run
+
+        using Pkg
+        Pkg.gc()
+
+    or, for a more in-depth cleaning,
+
+        using Pkg
+        using Dates
+        Pkg.gc(; collect_delay=Dates.Day(0))
+    """)
     end
     return nothing
 end

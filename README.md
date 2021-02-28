@@ -69,7 +69,16 @@ You are going to remove the following entries in /home/user/.julia/logs/manifest
   * /home/user/.julia/environments/v1.5/Manifest.toml
 Do you confirm your choice? [Y/n]: y
 
-Remember to run Pkg.gc() to actually cleanup files!
+To actually cleanup packages/artifacts installations, remember to run
+
+    using Pkg
+    Pkg.gc()
+
+or, for a more in-depth cleaning,
+
+    using Pkg
+    using Dates
+    Pkg.gc(; collect_delay=Dates.Day(0))
 ```
 
 ## License
