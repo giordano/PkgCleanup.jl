@@ -64,9 +64,9 @@ function cleanup(path::String, what::String;
             println(stdout, "  * ", el)
         end
         if yn_prompt("Do you confirm your choice?"; stdin, stdout)
-            # open(path, "w") do io
-            #     TOML.print(io, toml; sorted=true)
-            # end
+            open(path, "w") do io
+                TOML.print(io, toml; sorted=true)
+            end
         end
         println(stdout)
         println(stdout, """
