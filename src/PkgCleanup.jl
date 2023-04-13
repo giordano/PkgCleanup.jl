@@ -51,6 +51,7 @@ function cleanup(path::String, what::String;
     toml = TOML.parse(read(path, String))
     terminal = TTYTerminal("xterm", stdin, stdout, stderr)
     entries = sort!(collect(keys(toml)))
+    isempty(entries) && return nothing
     select_menu = MultiSelectMenu(entries)
     select_menu.selected = Set(collect(eachindex(entries)))
     choices = request(terminal, "Select the $(what) to keep in $(path)", select_menu)
