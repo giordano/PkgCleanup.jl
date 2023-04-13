@@ -39,7 +39,11 @@ using PkgCleanup
 * `PkgCleanup.manifests()`: to remove unneeded `Manifest.toml` from your
   `~/.julia/logs/manifest_usage.toml`.
 
-Yes, that's it.
+Execute the following line in your terminal to create a temp environment, install this package, and then clean up everything:
+
+```bash
+julia --startup-file=no --project=$(mktemp -d) -e 'using Pkg; Pkg.add(; url="https://github.com/giordano/PkgCleanup.jl"); using PkgCleanup, Dates; PkgCleanup.artifacts(); PkgCleanup.manifests(); Pkg.gc(; collect_delay=Dates.Day(0))'
+```
 
 ### Demo
 
